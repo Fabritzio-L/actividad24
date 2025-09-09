@@ -9,6 +9,13 @@ def suma_naturales(n):
     else:
         return n + suma_naturales(n-1)
 def fibonacci(n):
+    if  n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fibonacci(n-1)+ fibonacci(n-2)
+def contar_letras():
     pass
 while True:
     print("MENU")
@@ -32,3 +39,20 @@ while True:
             if n<0:
                 print("Solamente numeros positivos")
             print(suma_naturales(n))
+        case "3":
+            n = int(input("Ingrese un numero: "))
+            if n < 0:
+                print("Solamente numeros positivos")
+            else:
+                print(fibonacci(n))
+        case "4":
+            pass
+        case "5":
+            pass
+        case "6":
+            pass
+        case "7":
+            print("Saliendo del programa...")
+            break
+        case _:
+            print("Opcion invalida. Ingrese una opcion valida")
