@@ -4,12 +4,12 @@ def factorial(n):
     else:
         return n* factorial(n-1)
 def suma_naturales(n):
-    if n<0:
-        return "Solamente numeros positivos"
+    if n==1:
+        return 1
     else:
         return n + suma_naturales(n-1)
 def fibonacci(n):
-
+    pass
 while True:
     print("MENU")
     print("1. Calcular factorial")
@@ -29,4 +29,6 @@ while True:
                 print(f"El factorial de {n} es: {factorial(n)}")
         case "2":
             n=int(input("Ingrese un numero: "))
+            if n<0:
+                print("Solamente numeros positivos")
             print(suma_naturales(n))
