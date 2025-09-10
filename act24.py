@@ -14,12 +14,16 @@ def fibonacci(n):
     else:
         return fibonacci(n-1)+ fibonacci(n-2)
 def contar_letras(palabra,letra,i=0):
-    if i==len(palabra):
+    if i== len(palabra):
         return 0
     elif palabra[i] == letra:
         return  1+ contar_letras(palabra,letra,i+1)
     else:
         return contar_letras(palabra,letra,i+1)
+def invertir_cadena(cadena,i=0):
+    if i== len(cadena):
+        return ""
+    return invertir_cadena(cadena,i+1)+ cadena[i]
 while True:
     print("MENU")
     print("1. Calcular factorial")
@@ -49,11 +53,27 @@ while True:
             else:
                 print(f"El número de fibonacci es {fibonacci(n)}")
         case "4":
-            palabra= input("Ingrese una palabra: ")
-            letra= input("Ingrese la letra a contar: ")
+            while True:
+                palabra= input("Ingrese una palabra: ")
+                if not palabra:
+                    print("Ingrese una palabra")
+                else:
+                    break
+            while True:
+                letra= input("Ingrese la letra a contar: ")
+                if not letra:
+                    print("Ingrese una letra")
+                else:
+                    break
             print(f"La letra {letra} en {palabra} aparece {contar_letras(palabra,letra)} veces")
         case "5":
-            pass
+            while True:
+                cadena= input("Ingrese una cadena de texto: ")
+                if not cadena:
+                    print("Ingrese una cadena de texto")
+                else:
+                    break
+            print(invertir_cadena(cadena))
         case "6":
             pass
         case "7":
