@@ -23,7 +23,13 @@ def contar_letras(palabra,letra,i=0):
 def invertir_cadena(cadena,i=0):
     if i== len(cadena):
         return ""
-    return invertir_cadena(cadena,i+1)+ cadena[i]
+    else:
+        return invertir_cadena(cadena,i+1)+ cadena[i]
+def potencia(base,exponente):
+    if exponente==0:
+        return 1
+    else:
+        return base * potencia(base,exponente-1)
 while True:
     print("MENU")
     print("1. Calcular factorial")
@@ -36,22 +42,31 @@ while True:
     opcion= input("Ingrese una de las opciones: ")
     match opcion:
         case "1":
-            n= int(input("Ingrese un numero: "))
-            if n<0:
-                print("Solamente numeros positivos")
-            else:
-                print(f"El factorial de {n} es: {factorial(n)}")
+            try:
+                n= int(input("Ingrese un numero: "))
+                if n<0:
+                    print("Solamente numeros positivos")
+                else:
+                    print(f"El factorial de {n} es: {factorial(n)}")
+            except ValueError:
+                print("Ingrese numeros enteros positivos")
         case "2":
-            n=int(input("Ingrese un numero: "))
-            if n<0:
-                print("Solamente numeros positivos")
-            print(suma_naturales(n))
+            try:
+                n=int(input("Ingrese un numero: "))
+                if n<0:
+                    print("Solamente numeros positivos")
+                print(suma_naturales(n))
+            except ValueError:
+                print("Ingrese numeros enteros positivos")
         case "3":
-            n = int(input("Ingrese un numero: "))
-            if n < 0:
-                print("Solamente numeros positivos")
-            else:
-                print(f"El número de fibonacci es {fibonacci(n)}")
+            try:
+                n = int(input("Ingrese un numero: "))
+                if n < 0:
+                    print("Solamente numeros positivos")
+                else:
+                    print(f"El número de fibonacci es {fibonacci(n)}")
+            except ValueError:
+                print("Ingrese numeros enteros positivos")
         case "4":
             while True:
                 palabra= input("Ingrese una palabra: ")
@@ -75,7 +90,15 @@ while True:
                     break
             print(invertir_cadena(cadena))
         case "6":
-            pass
+            try:
+                base= int(input("Ingrese la base: "))
+                exponente= int(input("Ingrese el exponente: "))
+                if exponente<0:
+                    print("Solamente exponentes positivos")
+                else:
+                    print(f"{base}^{exponente}: {potencia(base,exponente)}")
+            except ValueError:
+                print("Ingrese numeros enteros positivos")
         case "7":
             print("Saliendo del programa...")
             break
